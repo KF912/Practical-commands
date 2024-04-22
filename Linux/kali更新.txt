@@ -1,0 +1,30 @@
+修改Kali Linux更新源为国内源 命令：sudo vim /etc/apt/sources.list
+
+#中科大
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+#清华大学
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+
+
+清理旧软件缓存 命令：sudo apt-get clean
+
+解决软件下载依赖问题 命令：sudo apt -f install
+
+更新Kali Linux自带软件库 命令：apt update
+
+更新Kali软件 命令：sudo apt-get update
+
+更新Kali系统 命令：sudo apt-get dist-upgrade
+
+重启系统 命令：sudo reboot
+

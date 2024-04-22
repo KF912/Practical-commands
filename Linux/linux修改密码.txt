@@ -1,0 +1,13 @@
+esc
+
+e
+
+rw
+
+init=/bin/sh
+
+passwd
+
+touch /.autorelabel
+
+exec /sbin/init

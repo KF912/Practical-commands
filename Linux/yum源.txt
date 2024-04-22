@@ -1,0 +1,30 @@
+yum默认链接的还是国外的镜像，速度相对不理想，配置成国内的镜像会快很多,这里以阿里镜像为例进行配置：
+
+CentOS系统更换软件安装源
+
+# 首先如果有原来的镜像源 备份原镜像源
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+# 下载新的镜像源信息到文件 /etc/yum.repos.d/CentOS-Base.repo中
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+或者
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# 清除系统原来的yum缓存
+yum clean all    
+# 生成yum缓存，即可使用yum安装yum中的数据
+yum makecache    
+
+
+### 如果没有安装wget 命令 可以不使用wget命令下载镜像信息，手动复制镜像源地址到浏览器访问即可下载到镜像源文件，复制下载到文件中的所有信息，手动创建文件/etc/yum.repos.d/CentOS-Base.repo，将刚才复制到的信息粘贴的这个文件中。这种方法也就实现了wget -o的命令
+
+通过yum -y install wget安装wget失败，先执行下面命令
+
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+而后再执行
+ yum -y install wget
+
+# 常用的镜像源
+http://mirrors.163.com/.help/CentOS6-Base-163.repo # 163网易
+http://mirrors.sohu.com/help/CentOS-Base-sohu.repo # 搜狐
+http://mirrors.aliyun.com/repo/Centos-7.repo # 阿里
+https://mirrors.tuna.tsinghua.edu.cn/help/centos/ # 清华镜像，需要手动访问浏览器复制镜像信息

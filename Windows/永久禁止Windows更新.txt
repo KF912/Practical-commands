@@ -1,0 +1,10 @@
+注意：PowerShell需要以管理员身份运行！
+执行PowerShell代码后重启电脑生效
+
+#禁止更新
+($SystemObjcetNull=New-Object System.Security.AccessControl.FileSecurity)|Where-Object{$_.SetSecurityDescriptorSddlForm("O:S-1-0-0G:S-1-0-0D:PAI(D;;FA;;;WD)")}
+Get-ChildItem -Path "C:\Windows\System32\*" -Include usosvc.dll,wuaueng.dll,usoclient.exe,MusNotification.exe -Force | Set-Acl  -AclObject $SystemObjcetNull
+
+
+#还原更新 
+Get-ChildItem -Path "C:\Windows\System32\*" -Include usosvc.dll,wuaueng.dll,usoclient.exe,MusNotification.exe -Force | Set-Acl -AclObject (Get-Acl "C:\Windows\System32\cmd.exe")

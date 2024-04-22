@@ -1,0 +1,3 @@
+@echo off
+copy  xxxxxx.exe  "%USERPROFILE%\SendTo\%ProgramName%"  
+exit

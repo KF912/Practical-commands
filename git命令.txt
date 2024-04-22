@@ -1,0 +1,47 @@
+Git 创建仓库
+创建一个git仓库有如下几种方式：
+git init：初始化一个git仓库
+git clone：clone一个git仓库
+
+Git 基本指令的使用
+下面介绍一下git中常用的几种命令：
+git config：配置信息
+git add：添加文件到缓存命令
+git status：查看文件的状态命令
+git diff：查看更新的详细信息命令
+git commit：提交命令
+git reset HEAD：取消缓存命令
+git rm：删除命令
+git mv：移动或重命名命令
+
+Git的分支管理
+几乎每种版本控制系统都支持分支管理，使用分支我们可以从主干中分离出来，然后继续开发，不影响主干。下面介绍一下Git中分支常用的命令：
+git branch：查看分支命令
+git branch (branchname)：创建分支命令
+git checkout (branchname)：切换分支命令
+git merge：合并分支命令
+git branch -d (branchname)：删除分支命令
+
+Git查看提交历史
+ 在使用 Git 提交了若干更新之后，又或者克隆了某个项目，想回顾下提交历史，我们可以使用 git log 命令查看，如，我们想列出历史提交记录如下：
+下面介绍查看历史记录的几种选项：
+–oneline ：查看历史记录的简洁版本
+–graph ：查看历史中什么时候出现了分支、合并
+–reverse ：逆向显示所有日志
+–author ：查找指定用户的提交日志
+–since、–before、 --until、–after： 指定帅选日期
+–no-merges ：选项以隐藏合并提交
+
+Git 标签
+使用标签可以很方便的永远的记住那个特别的提交快照，比如：我们发一个新的版本时，可以给它加一个“vx.x”版本，这样你可以使用git tag给它打上标签。
+创建新标签
+可以使用 git tag -a vx.x来创建一个标签。a 选项意为"创建一个带注解的标签"。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。
+
+Git 远程仓库
+ 前面我们使用到的 Git 命令都是在本地执行，如果你想通过 Git 分享你的代码或者与其他开发人员合作。 你就需要将数据放到一台其他开发人员能够连接的服务器上。本本将使用 Github 作为远程仓库，来介绍Git 远程仓库的使用。
+下面介绍远程仓库常用的几种指令：
+git remote add：添加远程仓库
+git remote：查看当前的远程仓库
+git fetch、git pull：提取远程仓仓库
+git push：推送到远程仓库
+git remote rm：删除远程仓库

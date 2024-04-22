@@ -1,0 +1,42 @@
+pip版本
+首先确保pip的版本是可用的，确保升级库过程中不会报错。查看pip版本：
+pip3 --version
+如果在安装库的过程中，出现以下提示说明pip版本过低，需要升级了。
+WARNING: You are using pip version 20.2.4; however, version 20.3.1 is available.
+
+升级pip3
+sudo python3 -m pip install --upgrade pip
+接下再升级
+查看所有可以升级的python库
+pip3 list --outdated
+pip3 list --outdated--trusted-host mirrors.aliyun.com
+
+升级单个库的方式：
+pip3 install --upgrade 库名
+
+如果需要升级的库数量很多，先然这个方式行不通。
+
+批量升级库的方式：
+1	安装pip-review，这个python的一个第三方库，注意：这个库名就叫做pip-review，不区分pip与pip3。
+安装语句：
+pip3 install pip-review
+升级全部库
+pip-review --local --interactive	
+
+
+2	# 需要安装 setuptools
+import pkg_resources
+from subprocess import call
+ 
+for packages in [dist.project_name for dist in pkg_resources.working_set]:
+    call("pip3 install --upgrade " + ''.join(packages) + ' --user', shell=True)
+
+
+3	使用 pip freeze
+如果是全量升级已安装的库，可以先用pip freeze 命令生成依赖文件，获取到已安装的库及其当前版本号：
+
+pip freeze > requirements.txt
+然后修改文件中的“==”为“>=”，接着执行：
+
+pip install -r requirements.txt --upgrade
+此方法比较适合于带有依赖文件的具体项目，可以针对该项目来升级所需的库。

@@ -1,0 +1,15 @@
+如果遇到network无法启动的情况，检测配置是是否有问题，如果是服务器（多网口），检测网线是否插在你启动的网网口上 检测你的NetworkManager是否启动，如果启动了可参考一下方法处理 简单粗暴：关闭NetworkManager服务，并取消开机启动(要是你使用的为命令行模式，没有有用图形界面，可以放心使用这种方法，使用图形界面的话还是建议自己排查一下) 排查NetworkManage：
+
+检查nmctl networking 状态是否为enabled，如果不是，执行一下命令开启
+# nmcli networking on
+# systemctl restart NetworkManager
+# systemctl restart network
+
+当然上面两种网络管理方式network与NetworkManager其它是相辅相成的作用，只需要使用其中一种方式来管理即可，另外一种可以禁用掉（注意：至少保持一种自启动，否则可能会出现开机没有网络的状况）。
+我比较喜欢使用NetworkManager来管理网络，更大的强大和易用，所以我这里把NetworkManager设置为开机启动，network为禁止开机启动。使用以下命令来查看启动状态。
+
+# 查看NetworkManager的是否为自启动
+[root@mx ~]# systemctl list-unit-files --type service | grep NetworkManager
+
+# 查看network是否设置为自启动
+[root@mx ~]# chkconfig --list | grep network

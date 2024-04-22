@@ -1,0 +1,18 @@
+dpkg-reconfigure locales
+
+
+
+确认是否安装中文语言包
+locale -a | grep "zh_CN" 
+
+如果没有安装中文语言支持，则运行
+sudo yum groupinstall "fonts" 
+
+临时修改
+LANG="zh_CN.utf8"
+
+永久修改
+sudo localectl  set-locale LANG=zh_CN.utf8
+
+dpkg-reconfigure locales
+

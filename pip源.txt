@@ -1,0 +1,54 @@
+python3 -m pip install -U pip setuptools wheel -i https://mirrors.aliyun.com/pypi/simple/
+
+pip3 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+
+python.exe -m pip install --upgrade pip
+
+1.临时换源：
+复制代码
+ #清华源
+pip install markdown -i https://pypi.tuna.tsinghua.edu.cn/simple
+# 阿里源
+pip install markdown -i https://mirrors.aliyun.com/pypi/simple/
+# 腾讯源
+pip install markdown -i http://mirrors.cloud.tencent.com/pypi/simple
+# 豆瓣源
+pip install markdown -i http://pypi.douban.com/simple/
+复制代码
+2.永久换源：
+复制代码
+# 清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+# 阿里源
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+# 腾讯源
+pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
+# 豆瓣源
+pip config set global.index-url http://pypi.douban.com/simple/
+# 换回默认源
+pip config unset global.index-url
+
+PYPI国内源路径
+阿里云 http://mirrors.aliyun.com/pypi/simple/
+
+豆瓣(douban) http://pypi.douban.com/simple/
+
+清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/
+
+中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
+
+永久换源（更换默认源）
+Linux
+在根目录下创建/修改～/.pip/pip.confpip配置文件；
+
+进入文件新增/修改内容；
+
+[global]
+index-url=http://pypi.douban.com/simple
+[install]
+trusted-host=pypi.douban.com
+保存文件并退出；
+
+Windows
+windows在%HOMEPATH%\pip\pip.ini中修改上面第二步的内容；(例如：C:\Users\hp\AppData\Roaming\pip\pip.ini)
+保存文件退出；
