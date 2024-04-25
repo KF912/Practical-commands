@@ -25,6 +25,14 @@ systemctl restart docker.service
 第四步：执行docker info查看是否修改成功
 docker info
 
+docker desktop
+docker engine
+  "registry-mirrors":[
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+   ],
+
 1.网易
 http://hub-mirror.c.163.com
 2.Docker中国区官方镜像
